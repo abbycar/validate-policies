@@ -1,0 +1,14 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+metadata:
+  name: test
+build:
+  artifacts:
+    - image: validate-image
+      context: ..
+      docker:
+        dockerfile: validate/Dockerfile
+test:
+  - image: validate-image
+    custom:
+    - command: ./validate.sh $IMAGE
