@@ -1,3 +1,4 @@
-FROM gcr.io/kpt-fn/gatekeeper:v0.1
-COPY ../../../k8s/ k8s/
-COPY ./policy.yaml k8s/policy.yaml
+FROM gcr.io/config-management-release/policy-controller-validate
+VOLUME /k8s
+COPY ./policy.yaml .
+ENTRYPOINT ["/bin/sh", "validate.sh"]
