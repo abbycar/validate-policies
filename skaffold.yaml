@@ -7,8 +7,9 @@ build:
     - image: validate-image
       context: ..
       docker:
-        dockerfile: validate/Dockerfile
+        dockerfile: ./Dockerfile
 test:
-  - image: validate-image
+  - image: test-validate-image
     custom:
     - command: ./validate.sh $IMAGE
+
